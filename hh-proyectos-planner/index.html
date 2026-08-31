@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HH Proyectos · Planner</title>
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <img src="assets/logo.svg" alt="HH Proyectos" class="brand-logo">
+    <div class="brand-text">
+      <span class="brand-name">HH PROYECTOS</span>
+      <span class="brand-tagline">Arquitectura · Gerencia Técnica</span>
+    </div>
+  </div>
+
+  <div class="board-switcher">
+    <select id="board-select" aria-label="Seleccionar tablero"></select>
+    <button id="btn-new-board" class="btn-ghost" title="Nuevo tablero">+ Tablero</button>
+    <button id="btn-rename-board" class="btn-ghost" title="Renombrar tablero">Renombrar</button>
+    <button id="btn-delete-board" class="btn-ghost btn-danger" title="Eliminar tablero">Eliminar</button>
+  </div>
+
+  <div class="topbar-right">
+    <input id="search" type="search" placeholder="Buscar tarjetas…" aria-label="Buscar tarjetas">
+  </div>
+</header>
+
+<main class="board-area">
+  <div id="progress-wrap" class="progress-wrap">
+    <div class="progress-label"><span id="progress-text">0 de 0 completadas</span></div>
+    <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+  </div>
+
+  <div id="columns" class="columns"></div>
+
+  <button id="btn-new-column" class="btn-add-column">+ Agregar columna</button>
+</main>
+
+<!-- Card modal -->
+<div id="card-modal" class="modal-overlay hidden">
+  <div class="modal">
+    <div class="modal-header">
+      <input id="card-title-input" class="card-title-input" placeholder="Título de la tarjeta">
+      <button id="card-modal-close" class="btn-icon" aria-label="Cerrar">✕</button>
+    </div>
+
+    <label class="field-label">Descripción</label>
+    <textarea id="card-desc-input" rows="4" placeholder="Detalles, alcance, notas…"></textarea>
+
+    <div class="field-row">
+      <div class="field-col">
+        <label class="field-label">Fecha límite</label>
+        <input id="card-due-input" type="date">
+      </div>
+      <div class="field-col">
+        <label class="field-label">Etiqueta</label>
+        <select id="card-label-input">
+          <option value="">Ninguna</option>
+          <option value="bosque">Prioritario</option>
+          <option value="grafito">Interno</option>
+          <option value="claro">General</option>
+        </select>
+      </div>
+    </div>
+
+    <label class="field-label">Responsable</label>
+    <input id="card-assignee-input" type="text" placeholder="Nombre">
+
+    <div class="modal-actions">
+      <button id="card-delete-btn" class="btn-ghost btn-danger">Eliminar tarjeta</button>
+      <button id="card-save-btn" class="btn-primary">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
